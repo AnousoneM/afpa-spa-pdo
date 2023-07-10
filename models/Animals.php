@@ -18,4 +18,7 @@ class Animals {
     private int $spe_id;
     private int $col_id;
     private int $bre_id;
+
+
+    
 }
