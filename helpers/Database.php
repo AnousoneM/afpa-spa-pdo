@@ -4,9 +4,9 @@ class Database
 {
     /**
      * Permet de créer une instance de PDO
-     * @return object|string Instance PDO ou Message d'erreur
+     * @return object Instance PDO ou Message d'erreur
      */
-    public static function createInstancePDO(): object | string
+    public static function createInstancePDO(): object 
     {
         try {
             $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
