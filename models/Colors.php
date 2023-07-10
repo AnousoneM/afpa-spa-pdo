@@ -5,6 +5,7 @@ class Colors {
         // Nous déterminons les propriétés de la classe Colors selon les colonnes de la table colors de la base de données.
         private int $col_id;
         private string $col_name;
+
     
         /**
          * Permet d'avoir toutes les couleurs
