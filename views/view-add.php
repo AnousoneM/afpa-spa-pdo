@@ -1,22 +1,22 @@
 <?php include_once 'template/head-admin.php'; ?>
 
-<h1 class="text-center my-2">Administration du refuge</h1>
+<h1 class="text-center mt-4 mb-2 font-pangolin">Administration du refuge</h1>
 
-<p class="text-center">Add</p>
+<p class="text-center font-pangolin">Ajout d'un pensionnaire</p>
 
 <div class="row justify-content-center mx-0 mb-5">
-    <div class="container col-8 p-4 border">
+    <div class="container col-8 p-4 rounded shadow bg-light">
         <form action="" method="POST" novalidate>
-            <?php
+            <div class="mb-4">
+                <label for="birthdate" class="form-label">Date d'arrivée *</label>
+                <input type="date" class="form-control" name="arrivaldate" id="arrivaldate" value=<?= $_POST['arrivaldate'] ?? date('Y-m-d') ?>>
+                <div class="form-error"><?= $errors['arrivaldate'] ?? '' ?></div>
+            </div>
 
-            var_dump($_POST);
-            var_dump($errors);
-
-            ?>
 
             <div class="mb-4">
                 <label for="name" class="form-label">Nom de l'animal *</label>
-                <input type="text" class="form-control" id="name" name="name" value="<?= $_POST['name'] ?? '' ?>">
+                <input type="text" class="form-control" id="name" name="name" placeholder="ex. Rintintin" value="<?= $_POST['name'] ?? '' ?>">
                 <div class="form-error"><?= $errors['name'] ?? '' ?></div>
             </div>
 
@@ -66,7 +66,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="birthdate" class="form-label">Date de naissance</label>
+                <label for="birthdate" class="form-label">Date de naissance *</label>
                 <input type="date" class="form-control" name="birthdate" id="birthdate" value=<?= $_POST['birthdate'] ?? '' ?>>
                 <div class="form-error"><?= $errors['birthdate'] ?? '' ?></div>
             </div>
@@ -93,12 +93,13 @@
 
             <div class="mb-4">
                 <label for="description" class="form-label">Description *</label>
-                <textarea class="form-control" id="description" name="description" rows="3"><?= $_POST['description'] ?? '' ?></textarea>
+                <textarea class="form-control" id="description" name="description" placeholder="ex. Gentil et calin ... " rows="3"><?= $_POST['description'] ?? '' ?></textarea>
                 <div class="form-error"><?= $errors['description'] ?? '' ?></div>
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Enregistrer le nouveau pensionnaire</button>
+            <button type="submit" class="btn btn-primary font-pangolin">Enregistrer le nouveau pensionnaire</button>
+
         </form>
     </div>
 </div>

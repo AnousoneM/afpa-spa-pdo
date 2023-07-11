@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
+body {
+    background-color: #69A2B0;
+}
+
+h2.big-h2 {
+    font-size: 2.8rem;
+}
+
 .header {
     padding: 2em 0;
     font-family: 'Fredericka the Great', cursive;
@@ -21,7 +29,8 @@
     background-color: #659157;
 }
 
-#pensionnaires {
+
+.font-pangolin {
     font-family: 'Pangolin', cursive;
 }
 
@@ -30,4 +39,19 @@
     color: rgb(180, 100, 100);
     font-size: 0.9rem;
     font-style: italic;
+}
+
+.my-btn-infos {
+    background-color: #69A2B0;
+    color: aliceblue;
+}
+
+.my-btn-update {
+    background-color: #69A2B0;
+    color: aliceblue;
+}
+
+.my-btn-delete {
+    background-color: #E05263;
+    color: aliceblue;
 }

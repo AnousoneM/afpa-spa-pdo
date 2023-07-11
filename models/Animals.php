@@ -17,7 +17,6 @@ class Animals
     private string $ani_description;
     private string $ani_picture;
     private int $ani_weight;
-
     private int $spe_id;
     private int $col_id;
     private int $bre_id;
@@ -39,29 +38,26 @@ class Animals
             // On prépare la requête avant de l'exécuter
             $stmt = $pdo->prepare($sql);
 
-            // On injecte les valeurs dans la requête
-            $stmt->bindValue(':name', Database::safeData($inputs['name']), PDO::PARAM_STR);
-            $stmt->bindValue(':sex', Database::safeData($inputs['sex']), PDO::PARAM_STR);
-            $stmt->bindValue(':birthdate', $inputs['birthdate'], PDO::PARAM_STR);
-            $stmt->bindValue(':arrivaldate', date("Y-m-d"), PDO::PARAM_STR);
-            $stmt->bindValue(':microchipped', $inputs['microchipped'], PDO::PARAM_BOOL);
-            $stmt->bindValue(':tattooed', $inputs['tattooed'], PDO::PARAM_BOOL);
-            $stmt->bindValue(':vaccinated', $inputs['vaccinated'], PDO::PARAM_BOOL);
-            $stmt->bindValue(':description', Database::safeData($inputs['description']), PDO::PARAM_STR);
+            // On injecte les valeurs dans la requête et nous utilisont la méthode bindValue pour se prémunir des injections SQL
+            $stmt->bindValue(':name', Form::safeData($inputs['name']), PDO::PARAM_STR);
+            $stmt->bindValue(':sex', Form::safeData($inputs['sex']), PDO::PARAM_STR);
+            $stmt->bindValue(':birthdate', Form::safeData($inputs['birthdate']), PDO::PARAM_STR);
+            $stmt->bindValue(':arrivaldate', Form::safeData($inputs['arrivaldate']), PDO::PARAM_STR);
+            $stmt->bindValue(':microchipped', isset($inputs['microchipped']) ? Form::safeData($inputs['microchipped']) : 0, PDO::PARAM_BOOL);
+            $stmt->bindValue(':tattooed', isset($inputs['tattooed']) ? Form::safeData($inputs['tattooed']) : 0, PDO::PARAM_BOOL);
+            $stmt->bindValue(':vaccinated', isset($inputs['vaccinated']) ? Form::safeData($inputs['vaccinated']) : 0, PDO::PARAM_BOOL);
+            $stmt->bindValue(':description', Form::safeData($inputs['description']), PDO::PARAM_STR);
             $stmt->bindValue(':picture', $inputs['specie'] == 1 ? 'dog.webp' : 'cat.webp', PDO::PARAM_STR);
-            $stmt->bindValue(':weight', Database::safeData($inputs['weight']), PDO::PARAM_STR);
-            $stmt->bindValue(':color', Database::safeData($inputs['color']), PDO::PARAM_BOOL);
-            $stmt->bindValue(':specie', Database::safeData($inputs['specie']), PDO::PARAM_BOOL);
-            $stmt->bindValue(':breed', Database::safeData($inputs['breed']), PDO::PARAM_BOOL);
+            $stmt->bindValue(':weight', Form::safeData($inputs['weight']), PDO::PARAM_STR);
+            $stmt->bindValue(':color', Form::safeData($inputs['color']), PDO::PARAM_INT);
+            $stmt->bindValue(':specie', Form::safeData($inputs['specie']), PDO::PARAM_INT);
+            $stmt->bindValue(':breed', Form::safeData($inputs['breed']), PDO::PARAM_INT);
 
-            // On exécute la requête
-            $stmt->execute();
-
-            // On retourne true si l'animal a bien été ajouté
-            return true;
+            // On exécute la requête, elle sera true si elle a réussi, dans le cas contraire il y aura une exception
+            return $stmt->execute();
         } catch (PDOException $e) {
             // test unitaire pour vérifier que l'animal n'a pas été ajouté et connaitre la raison
-            echo 'Erreur : ' . $e->getMessage();
+            // echo 'Erreur : ' . $e->getMessage();
             return false;
         }
     }

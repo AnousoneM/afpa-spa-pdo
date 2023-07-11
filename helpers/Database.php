@@ -12,22 +12,12 @@ class Database
             $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
             // A Activer seulement en developpement
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            // On retourne l'instance de PDO
             return $pdo;
         } catch (PDOException $e) {
             // test unitaire pour vérifier que la connexion à la base de données fonctionne
             // echo 'Erreur : ' . $e->getMessage();
-            die();
+            return false;
         }
-    }
-
-    /**
-     * Permet de sécuriser les données en appliquant les fonctions trim, stripslashes et htmlspecialchars
-     */
-    public static function safeData($value)
-    {
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = htmlspecialchars($value);
-        return $value;
     }
 }
