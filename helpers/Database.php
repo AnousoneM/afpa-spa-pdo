@@ -6,7 +6,7 @@ class Database
      * Permet de créer une instance de PDO
      * @return object Instance PDO ou Message d'erreur
      */
-    public static function createInstancePDO(): object 
+    public static function createInstancePDO(): object
     {
         try {
             $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8', DB_USER, DB_PASS);
@@ -14,8 +14,20 @@ class Database
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {
-            echo 'Erreur : ' . $e->getMessage();
+            // test unitaire pour vérifier que la connexion à la base de données fonctionne
+            // echo 'Erreur : ' . $e->getMessage();
             die();
         }
+    }
+
+    /**
+     * Permet de sécuriser les données en appliquant les fonctions trim, stripslashes et htmlspecialchars
+     */
+    public static function safeData($value)
+    {
+        $value = trim($value);
+        $value = stripslashes($value);
+        $value = htmlspecialchars($value);
+        return $value;
     }
 }

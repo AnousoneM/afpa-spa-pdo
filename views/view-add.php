@@ -6,7 +6,7 @@
 
 <div class="row justify-content-center mx-0 mb-5">
     <div class="container col-8 p-4 border">
-        <form action="" method="POST">
+        <form action="" method="POST" novalidate>
             <?php
 
             var_dump($_POST);
@@ -31,6 +31,15 @@
             <div class="form-error mb-4"><?= $errors['specie'] ?? '' ?></div>
 
 
+            <label for="sex" class="form-label">Sexe de l'animal *</label>
+            <select class="form-select form-select-sm" name="sex" id="sex">
+                <option value="" selected disabled>Choix du sexe</option>
+                <option value="m" <?= isset($_POST['sex']) && $_POST['sex'] == 'm' ? 'selected' : '' ?>>Male</option>
+                <option value="f" <?= isset($_POST['sex']) && $_POST['sex'] == 'f' ? 'selected' : '' ?>>Femelle</option>
+            </select>
+            <div class="form-error mb-4"><?= $errors['sex'] ?? '' ?></div>
+
+
             <label for="color" class="form-label">Couleur de l'animal *</label>
             <select class="form-select form-select-sm" name="color" id="color">
                 <option value="" selected disabled>Choix de la couleur</option>
@@ -50,27 +59,34 @@
             </select>
             <div class="form-error mb-4"><?= $errors['breed'] ?? '' ?></div>
 
+            <div class="mb-4">
+                <label for="weight" class="form-label">Poids (En gramme) *</label>
+                <input type="text" class="form-control" name="weight" id="weight" value=<?= $_POST['weight'] ?? '' ?>>
+                <div class="form-error"><?= $errors['weight'] ?? '' ?></div>
+            </div>
 
             <div class="mb-4">
                 <label for="birthdate" class="form-label">Date de naissance</label>
-                <input type="date" class="form-control" name="birthdate" id="birthdate">
+                <input type="date" class="form-control" name="birthdate" id="birthdate" value=<?= $_POST['birthdate'] ?? '' ?>>
                 <div class="form-error"><?= $errors['birthdate'] ?? '' ?></div>
             </div>
+
+
             <label class="form-label">Informations</label>
-            <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="microchipped" name="microchipped" value="1">
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="microchipped" name="microchipped" value="1" <?= isset($_POST['microchipped']) && $_POST['microchipped'] == 1 ? 'checked' : '' ?>>
                 <label class="form-check-label" for="microchipped">Pucé(e)</label>
             </div>
 
 
-            <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="tatooed" name="tatooed" value="1">
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="tattooed" name="tattooed" value="1" <?= isset($_POST['tattooed']) && $_POST['tattooed'] == 1 ? 'checked' : '' ?>>
                 <label class="form-check-label" for="tatooed">Tatoué(e)</label>
             </div>
 
 
             <div class="mb-4 form-check">
-                <input type="checkbox" class="form-check-input" id="vaccinated" name="vaccinated" value="1">
+                <input type="checkbox" class="form-check-input" id="vaccinated" name="vaccinated" value="1" <?= isset($_POST['vaccinated']) && $_POST['vaccinated'] == 1 ? 'checked' : '' ?>>
                 <label class="form-check-label" for="vaccinated">Vacciné(e)</label>
             </div>
 

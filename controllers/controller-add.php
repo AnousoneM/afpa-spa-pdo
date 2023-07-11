@@ -29,15 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['specie'] = 'Veuillez sélectionner un type d\'animal';
     }
 
-    // controle de la race
-    if (!isset($_POST['breed'])) {
-        $errors['breed'] = 'Veuillez sélectionner une race d\'animal';
+    if (!isset($_POST['sex'])) {
+        $errors['sex'] = 'Veuillez sélectionner le sexe de l\'animal';
     }
 
     // controle de la couleur
     if (!isset($_POST['color'])) {
         $errors['color'] = 'Veuillez sélectionner une type couleur';
     }
+
+    // controle de la race
+    if (!isset($_POST['breed'])) {
+        $errors['breed'] = 'Veuillez sélectionner une race d\'animal';
+    }
+
+    // controle du poids
+    if (isset($_POST['weight'])) {
+        if (empty($_POST['weight'])) {
+            $errors['weight'] = 'Le poids est obligatoire';
+        } else if (!preg_match(REGEX_WEIGHT, $_POST['weight'])) {
+            $errors['weight'] = 'Le poids n\'est pas valide';
+        }
+    }
+
 
     // Contrôle de la description
     if (isset($_POST['description'])) {
@@ -50,6 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors['description'] = 'La description est obligatoire';
         }
     }
+
+    
+
+
 }
 
 ?>

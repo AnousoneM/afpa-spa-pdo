@@ -6,3 +6,4 @@ define('DB_USER', 'afpa-spa');
 define('DB_PASS', 'afpa-spa');
 
 define('REGEX_NAME', '/^[a-zA-ZÀ-ÖØ-öø-ÿ\' -]+$/');
+define('REGEX_WEIGHT', '/^[0-9]+$/');
