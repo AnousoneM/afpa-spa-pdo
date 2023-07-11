@@ -1,12 +1,9 @@
-<?php include_once 'template/head.php'; ?>
-
-<h1 class="text-center my-2">Administration du refuge</h1>
+<?php include_once 'template/head-admin.php'; ?>
 
 <div class="row mt-2 mx-0 justify-content-center">
 
-    <a href="" class="fs-3 btn btn-secondary btn-lg col-2 m-2 p-5">Ajouter un pensionnaire</a>
-
-    <a href="" class="fs-3 btn btn-secondary btn-lg col-2 m-2 p-5">Gérer les pensionnaires</a>
+    <a href="../controllers/controller-add.php" class="fs-3 text-center btn btn-secondary btn-lg col-3 m-2 p-5">Ajouter un pensionnaire</a>
+    <a href="" class="fs-3 text-center btn btn-secondary btn-lg col-3 m-2 p-5">Gérer les pensionnaires</a>
 
 </div>
 

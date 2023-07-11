@@ -1,8 +1,7 @@
 <?php
 
-class Breed
+class Breeds
 {
-
     private int $bre_id;
     private string $bre_name;
     private int $spe_id;

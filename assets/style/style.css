@@ -7,6 +7,12 @@
     background-color: #A1C084;
 }
 
+.header-admin {
+    padding: 2em 0;
+    font-family: 'Fredericka the Great', cursive;
+    background-color: #A1C084;
+}
+
 .header h1 {
     font-size: 5em;
 }
@@ -17,4 +23,11 @@
 
 #pensionnaires {
     font-family: 'Pangolin', cursive;
+}
+
+.form-error {
+    min-height: 1rem;
+    color: rgb(180, 100, 100);
+    font-size: 0.9rem;
+    font-style: italic;
 }
