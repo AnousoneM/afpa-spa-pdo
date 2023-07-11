@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 10 juil. 2023 à 15:48
+-- Généré le : mar. 11 juil. 2023 à 15:51
 -- Version du serveur : 5.7.39
 -- Version de PHP : 8.2.0
 
@@ -31,7 +31,7 @@ CREATE TABLE `animals` (
   `ani_id` int(11) NOT NULL,
   `ani_name` varchar(50) NOT NULL,
   `ani_sex` varchar(1) NOT NULL,
-  `ani_reserved` tinyint(1) NOT NULL,
+  `ani_reserved` tinyint(1) NOT NULL DEFAULT '0',
   `ani_birthdate` date DEFAULT NULL,
   `ani_adoptiondate` date DEFAULT NULL,
   `ani_arrivaldate` date NOT NULL,
@@ -39,10 +39,24 @@ CREATE TABLE `animals` (
   `ani_tattooed` tinyint(1) NOT NULL,
   `ani_vaccinated` tinyint(1) NOT NULL,
   `ani_description` text NOT NULL,
+  `ani_picture` text NOT NULL,
   `col_id` int(11) NOT NULL,
   `spe_id` int(11) NOT NULL,
-  `bre_id` int(11) NOT NULL
+  `bre_id` int(11) NOT NULL,
+  `ani_weight` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `animals`
+--
+
+INSERT INTO `animals` (`ani_id`, `ani_name`, `ani_sex`, `ani_reserved`, `ani_birthdate`, `ani_adoptiondate`, `ani_arrivaldate`, `ani_microchipped`, `ani_tattooed`, `ani_vaccinated`, `ani_description`, `ani_picture`, `col_id`, `spe_id`, `bre_id`, `ani_weight`) VALUES
+(2, 'Rintintin', 'm', 0, '2023-07-14', NULL, '2023-07-14', 1, 1, 1, 'Gentil Chien', 'photo.jpeg', 1, 1, 3, 1300),
+(3, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
+(4, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
+(5, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
+(6, 'AZEAZE', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'azeaze', 'dog.webp', 1, 1, 1, 1234),
+(7, 'Betty', 'f', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'azeaze', 'cat.webp', 1, 1, 1, 500);
 
 -- --------------------------------------------------------
 
@@ -158,7 +172,7 @@ ALTER TABLE `species`
 -- AUTO_INCREMENT pour la table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `ani_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ani_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `breeds`
