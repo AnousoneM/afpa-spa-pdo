@@ -24,9 +24,9 @@ class Animals
     /**
      * Ajouter un animal dans la base de données
      * @param array $inputs Tableau contenant les données du formulaire
-     * @return bool Retourne true si l'animal a bien été ajouté, false sinon
+     * @return bool Retourne true si l'animal a bien été ajouté, false si KO
      */
-    public function addAnimal(array $inputs)
+    public function addAnimal(array $inputs): bool
     {
         try {
             // Creation d'une instance de connexion à la base de données
@@ -57,6 +57,38 @@ class Animals
             return $stmt->execute();
         } catch (PDOException $e) {
             // test unitaire pour vérifier que l'animal n'a pas été ajouté et connaitre la raison
+            // echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Méthode permettant d'obtenir tous les animaux
+     * @return array Tableau associatif contenant les infos des animaux
+     */
+    public static function getAllAnimals(): array
+    {
+
+        try {
+            // création d'une instance PDO
+            $pdo = Database::createInstancePDO();
+
+            // je stock ma requête dans une variable
+            $sql = 'SELECT `ani_id`, `ani_sex`, `ani_reserved`, `ani_name`, DATE_FORMAT(`ani_birthdate`, "%d/%m/%Y") AS "birthdate", DATE_FORMAT(`ani_arrivaldate`, "%d/%m/%Y") AS `arrivaldate`, `ani_description`, `ani_picture`, `ani_weight`, `col_name`, `bre_name`, `spe_name` FROM `animals`
+        NATURAL JOIN `colors`
+        NATURAL JOIN `breeds`
+        NATURAL JOIN `species`
+        ORDER BY arrivaldate DESC';
+
+            // J'effectue la requete et je la stock dans une variable (statement)
+            $stmt = $pdo->query($sql);
+
+            // Pour récupérer les données, j'utilise la méthode fetchAll()
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+        } catch (PDOException $e) {
+            // test unitaire pour vérifier que la liste n'a pas été recupérée et connaitre la raison
             // echo 'Erreur : ' . $e->getMessage();
             return false;
         }

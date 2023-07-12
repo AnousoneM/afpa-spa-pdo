@@ -18,32 +18,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="align-middle">
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
-                        <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
-                        <a href="#" class="btn btn-sm my-btn-delete me-1">Archiver</a>
-                    </td>
-                </tr>
-                <tr class="align-middle">
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td class="text-center">
-                        <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
-                        <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
-                        <a href="#" class="btn btn-sm my-btn-delete me-1">Archiver</a>
-                    </td>
-                </tr>
+                <!-- je parcours le tabbleau des animaux recupérer à l'aide de la methode static  -->
+                <?php foreach (Animals::getAllAnimals() as $animal) { ?>
+                    <tr class="align-middle">
+                        <td><?= $animal['arrivaldate'] ?></td>
+                        <td><?= ucfirst($animal['ani_name']) ?></td>
+                        <td><?= ucfirst($animal['spe_name']) ?></td>
+                        <td><?= ucfirst($animal['bre_name']) ?></td>
+                        <td><?= $animal['ani_reserved'] == 0 ? 'Non' : 'Oui' ?></td>
+                        <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
+                            <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
+                            <a href="#" class="btn btn-sm my-btn-delete me-1">Archiver</a>
+                        </td>
+                    </tr>
+                <?php  } ?>
             </tbody>
         </table>
+
+        <a href="../controllers/controller-admin.php">retour menu</a>
     </div>
 </div>
 

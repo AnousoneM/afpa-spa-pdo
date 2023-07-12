@@ -6,7 +6,10 @@
 
 <div class="row justify-content-center mx-0 mb-5">
     <div class="container col-8 p-4 rounded shadow bg-light">
-        <form action="" method="POST" novalidate>
+
+        <?php if ($showForm) { ?>
+
+            <form action="" method="POST" novalidate>
             <div class="mb-4">
                 <label for="birthdate" class="form-label">Date d'arrivée *</label>
                 <input type="date" class="form-control" name="arrivaldate" id="arrivaldate" value=<?= $_POST['arrivaldate'] ?? date('Y-m-d') ?>>
@@ -99,8 +102,24 @@
 
 
             <button type="submit" class="btn btn-primary font-pangolin">Enregistrer le nouveau pensionnaire</button>
+            <a href="../controllers/controller-admin.php">Annuler</a>
 
         </form>
+
+        <?php } else { ?>
+            <!-- Nous indiquons que tout est ok -->
+            <p>Le nouveau pensionnaire a bien été ajouté</p>
+            <a href="../controllers/controller-add.php">Ajouter un nouveau pensionnaire</a>
+            <a href="../controllers/controller-admin.php">Retour menu</a>
+        <?php } ?>
+
+
+
+
+
+
+
+        
     </div>
 </div>
 

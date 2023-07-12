@@ -12,6 +12,8 @@ require_once '../models/Breeds.php';
 
 // Nous définissons un tableau d'erreurs
 $errors = [];
+// Nous définissons une variable permettant cacher / afficher le formulaire
+$showForm = true;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -68,10 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // si le tableau d'erreurs est vide, on ajoute l'animal dans la base de données
     if (empty($errors)) {
-        // instanctaion de la classe Animals
+        // instanciation de la classe Animals
         $animal = new Animals();
         // utilisation de la méthode addAnimal pour ajouter un animal dans la base de données
-        $animal->addAnimal($_POST);
+        if ($animal->addAnimal($_POST)){
+            $showForm = false;
+        }
     }
 }
 
