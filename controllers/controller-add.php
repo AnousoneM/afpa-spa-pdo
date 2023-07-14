@@ -47,6 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errors['breed'] = 'Veuillez sélectionner une race d\'animal';
     }
 
+    // controle de la arrivaldate : si vide
+    if (isset($_POST['arrivaldate'])) {
+        if (empty($_POST['arrivaldate'])) {
+            $errors['arrivaldate'] = 'La date d\'arrivée est obligatoire';
+        }
+    }
+
+    // controle de la birthdate : si vide
+    if (isset($_POST['birthdate'])) {
+        if (empty($_POST['birthdate'])) {
+            $errors['birthdate'] = 'La date de naissance est obligatoire';
+        }
+    }
+
     // controle du poids : vide et pattern
     if (isset($_POST['weight'])) {
         if (empty($_POST['weight'])) {
@@ -73,8 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // instanciation de la classe Animals
         $animal = new Animals();
         // utilisation de la méthode addAnimal pour ajouter un animal dans la base de données
-        if ($animal->addAnimal($_POST)){
+        if ($animal->addAnimal($_POST)) {
             $showForm = false;
+        } else {
+            $errors['bdd'] = 'Une erreur est survenue lors de l\'ajout de l\'animal';
         }
     }
 }

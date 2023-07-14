@@ -36,7 +36,7 @@
             </tbody>
         </table>
 
-        <a href="../controllers/controller-admin.php">retour menu</a>
+        <a href="../controllers/controller-admin.php" class="btn btn-outline-primary">Retour Menu</a>
     </div>
 </div>
 
