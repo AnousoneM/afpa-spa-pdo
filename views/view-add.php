@@ -7,11 +7,6 @@
 <div class="row justify-content-center mx-0 mb-5">
     <div class="container col-8 p-4 rounded shadow bg-light">
 
-        <?php
-        var_dump($_POST);
-        var_dump($errors);
-        ?>
-
         <?php if ($showForm) { ?>
 
             <form action="" method="POST" novalidate>

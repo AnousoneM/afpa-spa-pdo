@@ -7,7 +7,7 @@
 <div class="row justify-content-center mx-0 mb-5">
     <div class="container col-7 p-3 rounded shadow bg-light">
         <table class="table rounded text-start">
-            <thead>
+            <thead class="table-secondary font-pangolin">
                 <tr>
                     <th>Date d'arrivée</th>
                     <th>Nom</th>
@@ -20,7 +20,7 @@
             <tbody>
                 <!-- je parcours le tabbleau des animaux recupérer à l'aide de la methode static  -->
                 <?php foreach (Animals::getAllAnimals() as $animal) { ?>
-                    <tr class="align-middle">
+                    <tr class="align-middle fs-6">
                         <td><?= $animal['arrivaldate'] ?></td>
                         <td><?= ucfirst($animal['ani_name']) ?></td>
                         <td><?= ucfirst($animal['spe_name']) ?></td>
@@ -36,7 +36,7 @@
             </tbody>
         </table>
 
-        <a href="../controllers/controller-admin.php" class="btn btn-outline-primary">Retour Menu</a>
+        <a href="../controllers/controller-admin.php" class="btn btn-outline-secondary">Retour Menu</a>
     </div>
 </div>
 
