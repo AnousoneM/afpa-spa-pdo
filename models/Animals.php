@@ -98,9 +98,8 @@ class Animals
     /**
      * Méthode permettant d'obtenir les détails d'un animal selon son id
      * @param int $id Identifiant de l'animal
-     * @return array Tableau associatif contenant les infos de l'animal
      */
-    public function getAnimalDetail(int $id): array
+    public function getAnimalDetail(int $id)
     {
         try {
             // création d'une instance PDO
@@ -122,9 +121,9 @@ class Animals
             // On exécute la requête
             $stmt->execute();
 
-            // Pour récupérer les données, j'utilise la méthode fetch() car je n'ai qu'un seul résultat
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
+            // A l'aide d'une ternaire, nous vérifions si nous avons un résultat à l'aide de la méthode rowCount()
+            // Si le résultat est différent de 0, nous récupérons les données avec la méthode fetch(), sinon nous retournons false
+            $stmt->rowCount() != 0 ? $result = $stmt->fetch(PDO::FETCH_ASSOC) : $result = false;
             return $result;
         } catch (PDOException $e) {
             // test unitaire pour vérifier que l'animal n'a pas pu recupérée et connaitre la raison

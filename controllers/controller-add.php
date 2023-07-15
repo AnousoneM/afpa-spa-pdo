@@ -50,14 +50,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // controle de la arrivaldate : si vide
     if (isset($_POST['arrivaldate'])) {
         if (empty($_POST['arrivaldate'])) {
-            $errors['arrivaldate'] = 'Date d\'arrivée est obligatoire';
+            $errors['arrivaldate'] = 'Date d\'arrivée obligatoire';
         }
     }
 
     // controle de la birthdate : si vide
     if (isset($_POST['birthdate'])) {
         if (empty($_POST['birthdate'])) {
-            $errors['birthdate'] = 'Date de naissance est obligatoire';
+            $errors['birthdate'] = 'Date de naissance obligatoire';
         }
     }
 
@@ -87,9 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // instanciation de la classe Animals
         $animal = new Animals();
         // utilisation de la méthode addAnimal pour ajouter un animal dans la base de données
+        // si la méthode retourne true, on cache le formulaire à l'aide de la variable $showForm
         if ($animal->addAnimal($_POST)) {
             $showForm = false;
         } else {
+            // nous mettons en place un message d'erreur dans le cas où la requête échouée
             $errors['bdd'] = 'Une erreur est survenue lors de l\'ajout de l\'animal';
         }
     }
