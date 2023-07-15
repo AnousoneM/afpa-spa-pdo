@@ -9,6 +9,7 @@
 
             <div class="col-md-5 col-lg-5">
                 <div class="row bg-light g-0 border border-secondary-subtle rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
                     <div class="col p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary-emphasis"><?= ucfirst($animal['bre_name']) ?></strong>
                         <P class="h3 mb-0"><?= $animal['ani_name'] ?></P>
@@ -18,9 +19,11 @@
                             Plus d'infos
                         </a>
                     </div>
-                    <div class="col-auto">
-                        <img src="../assets/img/<?= $animal['ani_picture'] ?>" alt="Image d'un <?= $animal['spe_name'] ?>" class="bd-placeholder-img img-pet" />
+
+                    <div class="col text-center">
+                        <img src="../assets/img/<?= $animal['ani_picture'] ?>" alt="Image d'un <?= $animal['spe_name'] ?>" class="img-fluid" />
                     </div>
+
                 </div>
             </div>
 

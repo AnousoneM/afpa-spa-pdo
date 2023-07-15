@@ -5,7 +5,7 @@
 <p class="text-center font-pangolin">Ajout d'un pensionnaire</p>
 
 <div class="row justify-content-center mx-0 mb-5">
-    <div class="container col-8 px-5 pb-5 rounded shadow bg-light">
+    <div class="container col-lg-8 col-10 px-lg-5 px-3 pb-5 rounded shadow bg-light">
 
         <div class="form-error my-3 text-center"><?= $errors['bdd'] ?? '' ?></div>
 
@@ -109,15 +109,17 @@
                         </div>
 
 
-                        <div class="mb-4">
+                        <div class="mb-5">
                             <label for="description" class="form-label">Description *</label>
                             <span class="form-error"><?= $errors['description'] ?? '' ?></span>
                             <textarea class="form-control" id="description" name="description" placeholder="ex. Gentil et calin ... " rows="3"><?= $_POST['description'] ?? '' ?></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary font-pangolin">Enregistrer le nouveau pensionnaire</button>
-                        <a href="../controllers/controller-admin.php" class="btn btn-outline-secondary font-pangolin">Annuler</a>
-                        <p>* champs obligatoires</p>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary font-pangolin mb-lg-0 mb-3">Enregistrer le nouveau pensionnaire</button>
+                            <a href="../controllers/controller-admin.php" class="btn btn-outline-secondary font-pangolin">Annuler</a>
+                            <p class="mt-3">* Champs obligatoires</p>
+                        </div>
 
                     </div>
 

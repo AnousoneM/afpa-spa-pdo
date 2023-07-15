@@ -54,8 +54,7 @@ class Animals
             $stmt->bindValue(':breed', Form::safeData($inputs['breed']), PDO::PARAM_INT);
 
             // On exécute la requête, elle sera true si elle a réussi, dans le cas contraire il y aura une exception
-            // return $stmt->execute();
-            return false;
+            return $stmt->execute();
         } catch (PDOException $e) {
             // test unitaire pour vérifier que l'animal n'a pas été ajouté et connaitre la raison
             // echo 'Erreur : ' . $e->getMessage();
