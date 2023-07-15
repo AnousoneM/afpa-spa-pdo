@@ -10,17 +10,17 @@
             <div class="col-md-5 col-lg-5">
                 <div class="row bg-light g-0 border border-secondary-subtle rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
 
-                    <div class="col p-4 d-flex flex-column position-static">
+                    <div class="col-7 p-4 d-flex flex-column position-static">
                         <strong class="d-inline-block mb-2 text-primary-emphasis"><?= ucfirst($animal['bre_name']) ?></strong>
                         <P class="h3 mb-0"><?= $animal['ani_name'] ?></P>
                         <div class="mb-1 text-body-secondary"><?= $animal['birthdate'] ?></div>
-                        <p class="card-text mb-auto"><?= $animal['ani_description'] ?></p>
-                        <a href="../controllers/controller-details.php" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
+                        <p class=" text-truncate"><?= $animal['ani_description'] ?></p>
+                        <a href="../controllers/controller-details.php?id=<?= $animal['ani_id'] ?>" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
                             Plus d'infos
                         </a>
                     </div>
 
-                    <div class="col text-center">
+                    <div class="col-5 text-center">
                         <img src="../assets/img/<?= $animal['ani_picture'] ?>" alt="Image d'un <?= $animal['spe_name'] ?>" class="img-fluid" />
                     </div>
 

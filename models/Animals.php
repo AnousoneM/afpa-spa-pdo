@@ -38,7 +38,7 @@ class Animals
             // On prépare la requête avant de l'exécuter
             $stmt = $pdo->prepare($sql);
 
-            // On injecte les valeurs dans la requête et nous utilisont la méthode bindValue pour se prémunir des injections SQL
+            // On injecte les valeurs dans la requête et nous utilisons la méthode bindValue pour se prémunir des injections SQL
             $stmt->bindValue(':name', Form::safeData($inputs['name']), PDO::PARAM_STR);
             $stmt->bindValue(':sex', Form::safeData($inputs['sex']), PDO::PARAM_STR);
             $stmt->bindValue(':birthdate', Form::safeData($inputs['birthdate']), PDO::PARAM_STR);
@@ -63,7 +63,7 @@ class Animals
     }
 
     /**
-     * Méthode permettant d'obtenir tous les animaux
+     * Méthode permettant d'obtenir tous les animaux de la base de données
      * @return array Tableau associatif contenant les infos des animaux
      */
     public static function getAllAnimals(): array
@@ -83,12 +83,51 @@ class Animals
             // J'effectue la requete et je la stock dans une variable (statement)
             $stmt = $pdo->query($sql);
 
-            // Pour récupérer les données, j'utilise la méthode fetchAll()
+            // Pour récupérer les données, j'utilise la méthode fetchAll() car nous avons plusieurs résultats
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             return $result;
         } catch (PDOException $e) {
             // test unitaire pour vérifier que la liste n'a pas été recupérée et connaitre la raison
+            // echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+
+    /**
+     * Méthode permettant d'obtenir les détails d'un animal selon son id
+     * @param int $id Identifiant de l'animal
+     * @return array Tableau associatif contenant les infos de l'animal
+     */
+    public function getAnimalDetail(int $id): array
+    {
+        try {
+            // création d'une instance PDO
+            $pdo = Database::createInstancePDO();
+
+            // je stock ma requête dans une variable
+            $sql = 'SELECT `ani_id`, `ani_sex`, `ani_reserved`, `ani_vaccinated`, `ani_tattooed`,`ani_microchipped`,`ani_name`, DATE_FORMAT(`ani_birthdate`, "%d/%m/%Y") AS "birthdate", DATE_FORMAT(`ani_arrivaldate`, "%d/%m/%Y") AS `arrivaldate`, `ani_description`, `ani_picture`, `ani_weight`, `col_name`, `bre_name`, `spe_name` FROM `animals`
+            NATURAL JOIN `colors`
+            NATURAL JOIN `breeds`
+            NATURAL JOIN `species`
+            WHERE `ani_id` = :id';
+
+            // J'effectue la requete et je la stock dans une variable (statement)
+            $stmt = $pdo->prepare($sql);
+
+            // On injecte la valeur de l'$id dans la requête et nous utilisons la méthode bindValue pour se prémunir des injections SQL
+            $stmt->bindValue(':id', Form::safeData($id), PDO::PARAM_INT);
+
+            // On exécute la requête
+            $stmt->execute();
+
+            // Pour récupérer les données, j'utilise la méthode fetch() car je n'ai qu'un seul résultat
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            return $result;
+        } catch (PDOException $e) {
+            // test unitaire pour vérifier que l'animal n'a pas pu recupérée et connaitre la raison
             // echo 'Erreur : ' . $e->getMessage();
             return false;
         }
