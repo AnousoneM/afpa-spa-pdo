@@ -29,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // controle du type : si selectionné et si existe dans la base de données
     if (!isset($_POST['specie'])) {
-        $errors['specie'] = 'Veuillez sélectionner un type d\'animal';
+        $errors['specie'] = 'Veuillez sélectionner un type';
     }
 
     // controle du sexe : si selectionné et si existe dans la base de données
     if (!isset($_POST['sex'])) {
-        $errors['sex'] = 'Veuillez sélectionner le sexe de l\'animal';
+        $errors['sex'] = 'Veuillez sélectionner un sexe';
     }
 
     // controle de la couleur : si selectionné et si existe dans la base de données
@@ -44,20 +44,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // controle de la race : si selectionné et si existe dans la base de données
     if (!isset($_POST['breed'])) {
-        $errors['breed'] = 'Veuillez sélectionner une race d\'animal';
+        $errors['breed'] = 'Veuillez sélectionner une race';
     }
 
     // controle de la arrivaldate : si vide
     if (isset($_POST['arrivaldate'])) {
         if (empty($_POST['arrivaldate'])) {
-            $errors['arrivaldate'] = 'La date d\'arrivée est obligatoire';
+            $errors['arrivaldate'] = 'Date d\'arrivée est obligatoire';
         }
     }
 
     // controle de la birthdate : si vide
     if (isset($_POST['birthdate'])) {
         if (empty($_POST['birthdate'])) {
-            $errors['birthdate'] = 'La date de naissance est obligatoire';
+            $errors['birthdate'] = 'Date de naissance est obligatoire';
         }
     }
 

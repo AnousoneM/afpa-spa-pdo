@@ -5,7 +5,7 @@
 <p class="text-center font-pangolin">Liste des pensionnaires</p>
 
 <div class="row justify-content-center mx-0 mb-5">
-    <div class="container col-7 p-3 rounded shadow bg-light">
+    <div class="container col-8 p-3 rounded shadow bg-light">
         <table class="table rounded text-start">
             <thead class="table-secondary font-pangolin">
                 <tr>
@@ -13,7 +13,7 @@
                     <th>Nom</th>
                     <th>Type</th>
                     <th>Race</th>
-                    <th>Réservé</th>
+                    <th>Réservé(e)</th>
                     <th></th>
                 </tr>
             </thead>
