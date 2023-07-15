@@ -35,8 +35,10 @@
                 <?php  } ?>
             </tbody>
         </table>
+        <div class="text-center py-2">
+            <a href="../controllers/controller-admin.php" class="btn btn-secondary">Retour Menu</a>
+        </div>
 
-        <a href="../controllers/controller-admin.php" class="btn btn-outline-secondary">Retour Menu</a>
     </div>
 </div>
 
