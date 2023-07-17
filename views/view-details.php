@@ -1,17 +1,45 @@
 <?php include_once 'template/head.php'; ?>
 
-<div id="pensionnaires" class="container my-4 p-3 font-pangolin">
-    <h2 class="ms-2 mb-4 text-center big-h2">DOUG</h2>
+<div id="pensionnaires" class="container bg-light rounded shadow my-4 p-3 font-pangolin">
 
-    <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+    <?php if ($animalFound === true) { ?>
+        <p class="ms-2 text-center h1 big-h2"><?= $animalDetails['ani_name'] ?></p>
+        <p class="ms-2 text-secondary-emphasis text-center h3"><?= ucfirst($animalDetails['bre_name']) . ' - ' . ($animalDetails['ani_sex'] == 'm' ? 'Mâle' : 'Femelle')  ?></p>
+        <p class="text-body-secondary text-center">Né(e) le <?= $animalDetails['birthdate'] ?></p>
+        <hr>
+        <div class="row justify-content-center">
+
+            <div class="col-md-5 p-4">
+                <img class="img-fluid rounded" src="../assets/img/doug.jpg" alt="doug">
+            </div>
+
+            <div class="col-md-7 p-4">
+                <p class="fw-normal h6"><i class="fa-solid fa-house me-2"></i>Date d'arrivée au refuge : <?= $animalDetails['arrivaldate'] ?></p>
+                <ul>
+                    <li><b>Vacciné(e) : </b><?= $animalDetails['ani_vaccinated'] == 0 ? 'Non' : 'Oui' ?></li>
+                    <li><b>Tatoué(e) : </b><?= $animalDetails['ani_name'] == 0 ? 'Non' : 'Oui'  ?></li>
+                    <li><b>Pucé(e) : </b><?= $animalDetails['ani_name'] == 0 ? 'Non' : 'Oui'  ?></li>
+                </ul>
+                <p class="fw-normal h2"><?= $animalDetails['ani_description'] ?></p>
+            </div>
+
+            <div class="text-center">
+                <a href="../index.php" class="btn btn-sm btn-secondary mt-2">Retour</a>
+            </div>
+
         </div>
-        <div class="col-md-5 order-md-1">
-            <img class="img-fluid rounded" src="../assets/img/doug.jpg" alt="doug">
+    <?php } else { ?>
+        <p class="text-center mt-3 h4">Il n'y a pas d'animal correspondant</p>
+        <div class="text-center">
+            <a href="../index.php" class="btn btn-sm btn-secondary mt-2">Retour</a>
         </div>
-    </div>
+    <?php } ?>
+
+
+
+
+
+
 </div>
 
 <?php include_once 'template/footer.php'; ?>

@@ -5,27 +5,27 @@
 <p class="text-center font-pangolin">Liste des pensionnaires</p>
 
 <div class="row justify-content-center mx-0 mb-5">
-    <div class="container col-7 p-3 rounded shadow bg-light">
+    <div class="table-responsive container col-lg-8 col-11 p-3 rounded shadow bg-light">
         <table class="table rounded text-start">
-            <thead>
+            <thead class="table-secondary font-pangolin">
                 <tr>
-                    <th>Date d'arrivée</th>
+                    <th class="px-4">Date d'arrivée</th>
                     <th>Nom</th>
                     <th>Type</th>
                     <th>Race</th>
-                    <th>Réservé</th>
+                    <th class="text-center">Réservé(e)</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <!-- je parcours le tabbleau des animaux recupérer à l'aide de la methode static  -->
+                <!-- je parcours le tableau des animaux recupérer à l'aide de la methode static  -->
                 <?php foreach (Animals::getAllAnimals() as $animal) { ?>
-                    <tr class="align-middle">
-                        <td><?= $animal['arrivaldate'] ?></td>
+                    <tr class="align-middle fs-6">
+                        <td class="px-4"><?= $animal['arrivaldate'] ?></td>
                         <td><?= ucfirst($animal['ani_name']) ?></td>
                         <td><?= ucfirst($animal['spe_name']) ?></td>
                         <td><?= ucfirst($animal['bre_name']) ?></td>
-                        <td><?= $animal['ani_reserved'] == 0 ? 'Non' : 'Oui' ?></td>
+                        <td class="text-center"><?= $animal['ani_reserved'] == 0 ? 'Non' : 'Oui' ?></td>
                         <td class="text-center">
                             <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
                             <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
@@ -35,8 +35,10 @@
                 <?php  } ?>
             </tbody>
         </table>
+        <div class="text-center py-2">
+            <a href="../controllers/controller-admin.php" class="btn btn-secondary">Retour Menu</a>
+        </div>
 
-        <a href="../controllers/controller-admin.php">retour menu</a>
     </div>
 </div>
 

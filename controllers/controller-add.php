@@ -1,5 +1,15 @@
 <?php
 
+// j'ouvre ma session
+session_start();
+
+// je vérifie que l'utilisateur est bien connecté
+if(!isset($_SESSION['user'])){
+    header('Location: ../index.php');
+    exit;
+}
+
+
 require_once '../config.php';
 
 require_once '../helpers/Database.php';
@@ -29,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // controle du type : si selectionné et si existe dans la base de données
     if (!isset($_POST['specie'])) {
-        $errors['specie'] = 'Veuillez sélectionner un type d\'animal';
+        $errors['specie'] = 'Veuillez sélectionner un type';
     }
 
     // controle du sexe : si selectionné et si existe dans la base de données
     if (!isset($_POST['sex'])) {
-        $errors['sex'] = 'Veuillez sélectionner le sexe de l\'animal';
+        $errors['sex'] = 'Veuillez sélectionner un sexe';
     }
 
     // controle de la couleur : si selectionné et si existe dans la base de données
@@ -44,7 +54,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // controle de la race : si selectionné et si existe dans la base de données
     if (!isset($_POST['breed'])) {
-        $errors['breed'] = 'Veuillez sélectionner une race d\'animal';
+        $errors['breed'] = 'Veuillez sélectionner une race';
+    }
+
+    // controle de la arrivaldate : si vide
+    if (isset($_POST['arrivaldate'])) {
+        if (empty($_POST['arrivaldate'])) {
+            $errors['arrivaldate'] = 'Date d\'arrivée obligatoire';
+        }
+    }
+
+    // controle de la birthdate : si vide
+    if (isset($_POST['birthdate'])) {
+        if (empty($_POST['birthdate'])) {
+            $errors['birthdate'] = 'Date de naissance obligatoire';
+        }
     }
 
     // controle du poids : vide et pattern
@@ -73,8 +97,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // instanciation de la classe Animals
         $animal = new Animals();
         // utilisation de la méthode addAnimal pour ajouter un animal dans la base de données
-        if ($animal->addAnimal($_POST)){
+        // si la méthode retourne true, on cache le formulaire à l'aide de la variable $showForm
+        if ($animal->addAnimal($_POST)) {
             $showForm = false;
+        } else {
+            // nous mettons en place un message d'erreur dans le cas où la requête échouée
+            $errors['bdd'] = 'Une erreur est survenue lors de l\'ajout de l\'animal';
         }
     }
 }
