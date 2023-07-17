@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary font-pangolin mb-lg-0 mb-3">Enregistrer le nouveau pensionnaire</button>
+                            <button type="submit" class="btn btn-primary font-pangolin mb-lg-0 mb-3">Enregistrer</button>
                             <a href="../controllers/controller-admin.php" class="btn btn-outline-secondary font-pangolin">Annuler</a>
                             <p class="mt-3">* Champs obligatoires</p>
                         </div>
@@ -130,7 +130,7 @@
         <?php } else { ?>
             <!-- Nous indiquons que tout est ok -->
             <p class="text-center font-pangolin h3">Le nouveau pensionnaire a bien été ajouté <?= isset($_POST['specie']) && $_POST['specie'] == 2 ? '<i class="fa-solid fa-cat"></i>' : '<i class="fa-solid fa-dog"></i>' ?></p>
-            <div class="text-center">
+            <div class="text-center py-3">
                 <a href="../controllers/controller-add.php" class="btn btn-primary font-pangolin m-1">Ajouter un nouveau pensionnaire</a>
                 <a href="../controllers/controller-admin.php" class="btn btn-secondary font-pangolin m-1">Retour Menu</a>
             </div>

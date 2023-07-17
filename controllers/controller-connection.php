@@ -3,6 +3,12 @@
 // j'ouvre ma session
 session_start();
 
+// si l'utilisateur est déjà connecté, je le redirige vers le menu admin
+if (isset($_SESSION['user'])) {
+    header('Location: ../controllers/controller-admin.php');
+    exit;
+}
+
 // j'appelle ma config
 require_once '../config.php';
 

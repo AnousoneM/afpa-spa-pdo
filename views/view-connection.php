@@ -8,12 +8,12 @@
         <div class="row flex-column justify-content-center align-items-center">
             <div class="mb-4 col-4">
                 <label for="login" class="form-label">Login *</label>
-                <span class="form-error"><?= $errors['login'] ?? '' ?></span>
+                <span class="connection-error"><?= $errors['login'] ?? '' ?></span>
                 <input type="text" class="form-control" name="login" id="login" value=<?= $_POST['login'] ?? '' ?>>
             </div>
             <div class="mb-4 col-4">
                 <label for="birthdate" class="form-label">Mot de passe *</label>
-                <span class="form-error"><?= $errors['password'] ?? '' ?></span>
+                <span class="connection-error"><?= $errors['password'] ?? '' ?></span>
                 <input type="password" class="form-control" name="password" id="password" value=<?= $_POST['password'] ?? '' ?>>
             </div>
             <div class="mb-4 col-4">
