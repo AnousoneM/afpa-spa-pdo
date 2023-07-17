@@ -29,9 +29,29 @@
                         <td class="text-center">
                             <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
                             <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
-                            <a href="#" class="btn btn-sm my-btn-delete me-1">Archiver</a>
+                            <button class="btn btn-sm my-btn-delete me-1" data-bs-toggle="modal" data-bs-target="#deleteModal-<?= $animal['ani_id'] ?>">Archiver</button>
                         </td>
                     </tr>
+
+                    <!-- Modal pour l'archivage du pensionnaire -->
+                    <div class="modal fade" id="deleteModal-<?= $animal['ani_id'] ?>" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Archivage</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Souhaitez vous archiver le pensionnaire : <b><?= $animal['ani_name'] ?></b> ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Annuler</button>
+                                    <a href="../controllers/controller-list.php?action=delete&id=<?= $animal['ani_id'] ?>" class="btn btn-danger btn-sm">Archiver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 <?php  } ?>
             </tbody>
         </table>
