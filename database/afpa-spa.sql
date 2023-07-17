@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le : mar. 11 juil. 2023 à 15:51
--- Version du serveur : 5.7.39
--- Version de PHP : 8.2.0
+-- Hôte : localhost:3306
+-- Généré le : lun. 17 juil. 2023 à 23:31
+-- Version du serveur : 5.7.33
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `afpa-spa`
 --
+CREATE DATABASE IF NOT EXISTS `afpa-spa` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `afpa-spa`;
 
 -- --------------------------------------------------------
 
@@ -51,12 +53,26 @@ CREATE TABLE `animals` (
 --
 
 INSERT INTO `animals` (`ani_id`, `ani_name`, `ani_sex`, `ani_reserved`, `ani_birthdate`, `ani_adoptiondate`, `ani_arrivaldate`, `ani_microchipped`, `ani_tattooed`, `ani_vaccinated`, `ani_description`, `ani_picture`, `col_id`, `spe_id`, `bre_id`, `ani_weight`) VALUES
-(2, 'Rintintin', 'm', 0, '2023-07-14', NULL, '2023-07-14', 1, 1, 1, 'Gentil Chien', 'photo.jpeg', 1, 1, 3, 1300),
-(3, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
-(4, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
-(5, 'Rintintin', 'm', 0, '2023-05-05', NULL, '2023-07-07', 1, 1, 0, 'Super chat', 'chat.jpg', 4, 2, 10, 1320),
 (6, 'AZEAZE', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'azeaze', 'dog.webp', 1, 1, 1, 1234),
-(7, 'Betty', 'f', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'azeaze', 'cat.webp', 1, 1, 1, 500);
+(7, 'Betty', 'f', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'azeaze', 'cat.webp', 1, 1, 1, 500),
+(8, 'Totoro', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 1, 1, 'Super Gentil', 'dog.webp', 1, 1, 1, 1664),
+(9, 'Ecco', 'm', 0, '2023-07-06', NULL, '2023-07-11', 1, 0, 1, 'retertert', 'dog.webp', 1, 1, 1, 6000),
+(10, 'ertert', 'f', 0, '2023-07-06', NULL, '2023-07-11', 0, 0, 0, 'ertert', 'dog.webp', 1, 1, 1, 7896),
+(11, 'Voila', 'm', 0, '2023-07-05', NULL, '2023-07-11', 0, 0, 0, 'qsdqsdqsdqsd', 'dog.webp', 1, 1, 1, 8000),
+(12, 'wcxcxwwcxcxw', 'f', 0, '2023-07-12', NULL, '2023-07-11', 0, 1, 0, 'sdddddfg', 'dog.webp', 1, 1, 1, 7878),
+(13, 'QSDQSD', 'f', 0, '2023-07-20', NULL, '2023-07-11', 0, 0, 1, 'qsdqsd', 'cat.webp', 3, 2, 8, 8787),
+(14, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(15, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(16, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(17, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(18, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(19, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(20, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(21, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(22, 'azeaze', 'm', 0, '2023-07-12', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 3, 1, 1, 7880),
+(23, 'aze', 'f', 0, '2023-07-13', NULL, '2023-07-11', 1, 0, 1, 'aze', 'dog.webp', 2, 1, 3, 7898),
+(24, 'Dougy', 'f', 0, '2023-07-03', NULL, '2023-07-17', 1, 1, 0, 'Super chien', 'dog.webp', 2, 1, 5, 1245),
+(25, 'Toutou', 'm', 0, '2023-07-19', NULL, '2023-07-17', 1, 1, 1, 'aze', 'cat.webp', 7, 2, 8, 8787);
 
 -- --------------------------------------------------------
 
@@ -132,6 +148,25 @@ INSERT INTO `species` (`spe_id`, `spe_name`) VALUES
 (1, 'chien'),
 (2, 'chat');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `use_id` int(11) NOT NULL,
+  `use_login` varchar(45) NOT NULL,
+  `use_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`use_id`, `use_login`, `use_password`) VALUES
+(1, 'admin', '$2y$10$qYGC/jv3gWPSVU2EYiLlx..Y2jTfwR0hQjoPfWIx.V3m7X41Zh3MO');
+
 --
 -- Index pour les tables déchargées
 --
@@ -165,6 +200,12 @@ ALTER TABLE `species`
   ADD PRIMARY KEY (`spe_id`);
 
 --
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`use_id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -172,7 +213,7 @@ ALTER TABLE `species`
 -- AUTO_INCREMENT pour la table `animals`
 --
 ALTER TABLE `animals`
-  MODIFY `ani_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ani_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `breeds`
@@ -191,6 +232,12 @@ ALTER TABLE `colors`
 --
 ALTER TABLE `species`
   MODIFY `spe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `users`
+--
+ALTER TABLE `users`
+  MODIFY `use_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées
