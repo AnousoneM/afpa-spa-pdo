@@ -38,7 +38,7 @@
                         <td class="text-center"><?= $animal['ani_reserved'] == 0 ? 'Non' : 'Oui' ?></td>
                         <td class="text-center">
                             <a href="#" class="btn btn-sm btn-outline-secondary me-1">+ d'Infos</a>
-                            <a href="#" class="btn btn-sm my-btn-update me-1">Modifier</a>
+                            <a href="../controllers/controller-update.php?id=<?= $animal['ani_id'] ?>" class="btn btn-sm my-btn-update me-1">Modifier</a>
                             <button class="btn btn-sm my-btn-delete me-1" data-bs-toggle="modal" data-bs-target="#deleteModal-<?= $animal['ani_id'] ?>">Archiver</button>
                         </td>
                     </tr>
