@@ -99,7 +99,7 @@ class Animals
      * Méthode permettant d'obtenir les détails d'un animal selon son id
      * @param int $id Identifiant de l'animal
      */
-    public function getAnimalDetail(int $id)
+    public function getAnimalDetails(int $id)
     {
         try {
             // création d'une instance PDO
@@ -112,7 +112,7 @@ class Animals
             NATURAL JOIN `species`
             WHERE `ani_id` = :id';
 
-            // J'effectue la requete et je la stock dans une variable (statement)
+            // Je prepare la requete et je la stock dans une variable (statement)
             $stmt = $pdo->prepare($sql);
 
             // On injecte la valeur de l'$id dans la requête et nous utilisons la méthode bindValue pour se prémunir des injections SQL
@@ -124,6 +124,37 @@ class Animals
             // A l'aide d'une ternaire, nous vérifions si nous avons un résultat à l'aide de la méthode rowCount()
             // Si le résultat est différent de 0, nous récupérons les données avec la méthode fetch(), sinon nous retournons false
             $stmt->rowCount() != 0 ? $result = $stmt->fetch(PDO::FETCH_ASSOC) : $result = false;
+            return $result;
+        } catch (PDOException $e) {
+            // test unitaire pour vérifier que l'animal n'a pas pu recupérée et connaitre la raison
+            // echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
+    }
+
+    /**
+     * Méthode permettant d'effacer un animal de la base de données
+     * @param int $id Identifiant de l'animal
+     * @return bool true si la requête a réussi, false dans le cas contraire
+     */
+    public function deleteAnimal(int $id)
+    {
+        try {
+            // création d'une instance PDO
+            $pdo = Database::createInstancePDO();
+
+            // je stock ma requête dans une variable
+            $sql = 'DELETE FROM `animals` WHERE `ani_id` = :id';
+
+            // Je prepare la requete et je la stock dans une variable (statement)
+            $stmt = $pdo->prepare($sql);
+
+            // On injecte la valeur de l'$id dans la requête et nous utilisons la méthode bindValue pour se prémunir des injections SQL
+            $stmt->bindValue(':id', Form::safeData($id), PDO::PARAM_INT);
+
+            // A l'aide d'une ternaire, nous vérifions si nous exécutons la requête
+            // Si la requête passe, $result = true, sinon $resulte = false
+            $stmt->execute() ? $result = true : $result = false;
             return $result;
         } catch (PDOException $e) {
             // test unitaire pour vérifier que l'animal n'a pas pu recupérée et connaitre la raison

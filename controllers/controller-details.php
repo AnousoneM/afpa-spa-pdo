@@ -25,7 +25,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         // Nous allons également appeler la méthode getAnimalDetail() pour récupérer les informations de l'animal.
         $id = strip_tags($_GET['id']);
         $animal = new Animals();
-        $animalDetails = $animal->getAnimalDetail($id);
+        $animalDetails = $animal->getAnimalDetails($id);
 
         // Nous vérifions que l'animal a été trouvé, si oui nous modifions la valeur de la variable $animalFound à true pour afficher les informations de l'animal.
         if ($animalDetails != false) {

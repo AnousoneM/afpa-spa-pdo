@@ -1,10 +1,20 @@
 <?php include_once 'template/head-admin.php'; ?>
 
-<h1 class="text-center mt-4 mb-2 font-pangolin">Administration du refuge</h1>
+
+<?php if (isset($errors['message'])) { ?>
+
+    <div class="alert alert-success mt-2 mx-1" role="alert">
+        <?= $errors['message'] ?>
+    </div>
+
+<?php } ?>
+
+<h1 class="text-center mt-3 mb-2 font-pangolin">Administration du refuge</h1>
 
 <p class="text-center font-pangolin">Liste des pensionnaires</p>
 
 <div class="row justify-content-center mx-0 mb-5">
+
     <div class="table-responsive container col-lg-8 col-11 p-3 rounded shadow bg-light">
         <table class="table rounded text-start">
             <thead class="table-secondary font-pangolin">
