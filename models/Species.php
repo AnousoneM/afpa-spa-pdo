@@ -12,13 +12,18 @@ class Species
      */
     public static function getSpecies(): array
     {
-        $pdo = Database::createInstancePDO();
+        try {
+            $pdo = Database::createInstancePDO();
 
-        $sql = "SELECT * FROM species";
-        $stmt = $pdo->query($sql);
-        $stmt->execute();
-        $species = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $sql = "SELECT * FROM species";
+            $stmt = $pdo->query($sql);
+            $stmt->execute();
+            $species = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        return $species;
+            return $species;
+        } catch (PDOException $e) {
+            // echo 'Erreur : ' . $e->getMessage();
+            return false;
+        }
     }
 }
