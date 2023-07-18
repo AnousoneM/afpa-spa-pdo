@@ -56,7 +56,7 @@ class Users
             }
         } catch (PDOException $e) {
             // echo 'Erreur : ' . $e->getMessage();
-            return false
+            return false;
         }
     }
 }
