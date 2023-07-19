@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $animal = new Animals();
         // utilisation de la méthode addAnimal pour ajouter un animal dans la base de données
         // si la méthode retourne true, on cache le formulaire à l'aide de la variable $showForm
-        if ($animal->addAnimal($_POST)) {
+        if ($animal->updateAnimal($_POST)) {
             $showForm = false;
         } else {
             // nous mettons en place un message d'erreur dans le cas où la requête échouée

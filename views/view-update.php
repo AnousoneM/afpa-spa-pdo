@@ -116,6 +116,7 @@
                         </div>
 
                         <div class="text-center">
+                            <input type="hidden" name="id" value="<?= $animalDetails['ani_id'] ?>">
                             <button type="submit" class="btn btn-primary font-pangolin mb-lg-0 mb-3">Modifier</button>
                             <a href="../controllers/controller-list.php" class="btn btn-secondary font-pangolin">Annuler</a>
                             <p class="mt-3">* Champs obligatoires</p>
