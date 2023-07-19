@@ -74,7 +74,7 @@ class Animals
             $pdo = Database::createInstancePDO();
 
             // je stock ma requête dans une variable
-            $sql = 'SELECT `ani_id`, `ani_sex`, `ani_reserved`, `ani_name`, DATE_FORMAT(`ani_birthdate`, "%d/%m/%Y") AS "birthdate", DATE_FORMAT(`ani_arrivaldate`, "%d/%m/%Y") AS `arrivaldate`, `ani_description`, `ani_picture`, `ani_weight`, `col_name`, `bre_name`, `spe_name` FROM `animals`
+            $sql = 'SELECT `ani_id`, `ani_sex`, `ani_reserved`, `ani_tattooed`, `ani_microchipped`, `ani_vaccinated`, `ani_name`, DATE_FORMAT(`ani_birthdate`, "%d/%m/%Y") AS "birthdate", DATE_FORMAT(`ani_arrivaldate`, "%d/%m/%Y") AS `arrivaldate`, `ani_description`, `ani_picture`, `ani_weight`, `col_name`, `bre_name`, `spe_name` FROM `animals`
             NATURAL JOIN `colors`
             NATURAL JOIN `breeds`
             NATURAL JOIN `species`

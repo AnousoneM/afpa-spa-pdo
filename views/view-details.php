@@ -17,8 +17,8 @@
                 <p class="fw-normal h6"><i class="fa-solid fa-house me-2"></i>Date d'arrivée au refuge : <?= $animalDetails['arrivaldate'] ?></p>
                 <ul>
                     <li><b>Vacciné(e) : </b><?= $animalDetails['ani_vaccinated'] == 0 ? 'Non' : 'Oui' ?></li>
-                    <li><b>Tatoué(e) : </b><?= $animalDetails['ani_name'] == 0 ? 'Non' : 'Oui'  ?></li>
-                    <li><b>Pucé(e) : </b><?= $animalDetails['ani_name'] == 0 ? 'Non' : 'Oui'  ?></li>
+                    <li><b>Tatoué(e) : </b><?= $animalDetails['ani_tattooed'] == 0 ? 'Non' : 'Oui'  ?></li>
+                    <li><b>Pucé(e) : </b><?= $animalDetails['ani_microchipped'] == 0 ? 'Non' : 'Oui'  ?></li>
                 </ul>
                 <p class="fw-normal h2"><?= $animalDetails['ani_description'] ?></p>
             </div>
