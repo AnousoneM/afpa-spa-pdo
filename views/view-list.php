@@ -71,6 +71,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
+                                    <img class="img-fluid rounded" src="../assets/img/<?= $animal['ani_picture'] ?>" alt="Photo d'un <?= $animal['spe_name'] ?>">
                                     <p class="h3"><?= $animal['ani_name'] ?> <span class="fs-6 text-secondary">né(e) le <?= $animal['birthdate'] ?></span></p>
                                     <div class="row mt-3 mb-2">
                                         <div class="col">

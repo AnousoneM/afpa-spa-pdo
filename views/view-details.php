@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
 
             <div class="col-md-5 p-4">
-                <img class="img-fluid rounded" src="../assets/img/doug.jpg" alt="doug">
+                <img class="img-fluid shadow rounded" src="../assets/img/<?= $animalDetails['ani_picture']?>" alt="Photo d'un <?= $animalDetails['spe_name'] ?>">
             </div>
 
             <div class="col-md-7 p-4">
