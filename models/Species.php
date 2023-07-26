@@ -17,7 +17,6 @@ class Species
 
             $sql = "SELECT * FROM species";
             $stmt = $pdo->query($sql);
-            $stmt->execute();
             $species = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             return $species;
