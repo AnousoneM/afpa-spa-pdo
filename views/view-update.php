@@ -130,7 +130,7 @@
 
         <?php } else { ?>
             <!-- Nous indiquons que tout est ok -->
-            <p class="text-center font-pangolin h3">Les modifications ont bien été prises en compte<?= isset($_POST['specie']) && $_POST['specie'] == 2 ? '<i class="fa-solid fa-cat"></i>' : '<i class="fa-solid fa-dog"></i>' ?></p>
+            <p class="text-center font-pangolin h3">Les modifications ont bien été prises en compte <?= isset($_POST['specie']) && $_POST['specie'] == 2 ? '<i class="fa-solid fa-cat"></i>' : '<i class="fa-solid fa-dog"></i>' ?></p>
             <div class="text-center py-3">
                 <a href="../controllers/controller-list.php" class="btn btn-primary font-pangolin m-1">Liste des pensionnaires</a>
                 <a href="../controllers/controller-admin.php" class="btn btn-secondary font-pangolin m-1">Retour Menu</a>
